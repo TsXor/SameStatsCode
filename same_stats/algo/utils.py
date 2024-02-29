@@ -16,10 +16,10 @@ DFStats = tuple[float, float, float, float, float]
 s_curve = pytweening.easeInOutQuad
 
 def df_get_ith_point(df: pd.DataFrame, i: int) -> Point:
-    return df['x'][i + 1], df['y'][i + 1]
+    return cast(Point, tuple(df.iloc[i]))
 
 def df_set_ith_point(df: pd.DataFrame, i: int, p: Point) -> None:
-    x, y = p; df['x'][i + 1] = x; df['y'][i + 1] = y
+    df.iloc[i] = p # type: ignore
 
 def df_stats(df: pd.DataFrame) -> DFStats:
     xm = df.x.mean()
