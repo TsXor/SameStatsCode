@@ -1,0 +1,7 @@
+pandas
+numpy
+pytweening
+matplotlib
+seaborn
+av
+pillow
