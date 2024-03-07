@@ -1,3 +1,4 @@
+import warnings
 from functools import cached_property
 from io import BytesIO
 from typing import TYPE_CHECKING
@@ -10,6 +11,7 @@ if TYPE_CHECKING:
     from ..algo import SameStatsTransformation
 
 from .utils import *
+
 
 BOUND_PAD: float = 5
 
@@ -93,7 +95,6 @@ class ImageGenerator:
                         scatter_kws={"s": 50, "alpha": 0.7, "color":"black"})
             xlim, ylim = self._plot_xylim
             plt.xlim(xlim); plt.ylim(ylim)
-            plt.tight_layout()
 
             labels = ("X Mean", "Y Mean", "X SD", "Y SD", "Corr.")
             plt_add_data(110, 75, 15, 30, 7, 5, list(zip(labels, self.transformer.cur_stats)))

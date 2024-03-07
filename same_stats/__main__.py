@@ -105,7 +105,7 @@ def do_single_run(
 
 
 if __name__ == '__main__':
-    @click.command
+    @click.command()
     @click.argument('source', type=str)
     @click.argument('target', type=str)
     @click.option('--n-iter', type=int, default=100000)
